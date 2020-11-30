@@ -1,2 +1,2 @@
 # aoc-2020
-Advent of code - 2020 edition in C#
+Advent of Code - 2020 Edition
