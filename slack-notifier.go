@@ -14,7 +14,7 @@ type SlackManager struct {
 
 func (this *SlackManager) Init() {
 	Log.Info("Initializing Slack Manager");
-	this.API = slack.New("xoxp-683360277315-696609298631-709308949490-29d31a0574747242a82ec365e1d9afd2");
+	this.API = slack.New("");
 }
 
 func (this *SlackManager) SendMessage(text string) {
