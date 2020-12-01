@@ -7,12 +7,12 @@ import (
 	"strings"
 )
 
-type Problem1A struct {
+type Problem1B struct {
 
 }
 
-func (this *Problem1A) Solve() {
-	Log.Info("Problem 1A solver beginning!")
+func (this *Problem1B) Solve() {
+	Log.Info("Problem 1B solver beginning!")
 
 
 	file, err := os.Open("source-data/input-day-01a.txt");
@@ -41,11 +41,13 @@ func (this *Problem1A) Solve() {
 	len := len(vals);
 	for i := 0; i < len; i++{
 		for j := i + 1; j < len; j++{
-			if(vals[i] + vals[j] == targetVal){
-				product = vals[i] * vals[j];
+			for k := j + 1; k < len; k++{
+				if(vals[i] + vals[j] + vals[k] == targetVal){
+					product = vals[i] * vals[j] * vals[k];
+				}
 			}
 		}
 	}
 
-	Log.Info("Finished parsing file - magic pair is %d", product);
+	Log.Info("Finished parsing file - magic triplit is %d", product);
 }
