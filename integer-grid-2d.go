@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"github.com/nfnt/resize"
 	"image"
 	"image/color"
@@ -132,6 +133,34 @@ func (this *IntegerGrid2D) Print() string {
 				val := this.GetValue(i, j);
 				if(val > 0){
 					buff += strconv.Itoa(this.GetValue(i, j));
+				} else{
+					buff += " ";
+				}
+			}
+		}
+		buff += "\n";
+	}
+	//Log.Info("Furthest point is %d,%d", furthestX, furthestY);
+
+	return buff;
+}
+
+func (this *IntegerGrid2D) PrintAscii() string {
+	xMin := this.MinRow();
+	xMax := this.MaxRow();
+
+	yMin := this.MinCol();
+	yMax := this.MaxCol();
+
+	buff := "";
+	for j := yMin; j<= yMax; j++{
+		for i := xMin; i<= xMax; i++{
+			if(!this.HasValue(i, j)){
+				buff += " ";
+			} else{
+				val := this.GetValue(i, j);
+				if(val > 0){
+					buff += fmt.Sprintf("%c", this.GetValue(i, j));
 				} else{
 					buff += " ";
 				}
